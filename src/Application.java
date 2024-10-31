@@ -8,7 +8,7 @@ public class Application {
         try {
             legalKey = Integer.parseInt(key);
         } catch (NumberFormatException e) {
-            throw new RuntimeException("Введенный ключ не число");
+            throw new RuntimeException("Неверный ключ");
         }
 
         Path legalPath = Path.of(path);
@@ -17,8 +17,17 @@ public class Application {
             throw new RuntimeException("Файл не найден!");
         }
 
+        if (legalKey == 0) {
+            System.out.println("Ключ не может быть равным 0");
+            return;
+        }
+
         Encoder encoder = new Encoder(path, legalKey);
-        encoder.encrypt();
+        if (legalKey > 0) {
+            encoder.encrypt();
+        } else {
+            encoder.reversEncrypt();
+        }
     }
 
     public void DecryptorStart(String path, String key) {
@@ -26,7 +35,7 @@ public class Application {
         try {
             legalKey = Integer.parseInt(key);
         } catch (NumberFormatException e) {
-            throw new RuntimeException("Введенный ключ не число");
+            throw new RuntimeException("Неверный ключ");
         }
 
         Path legalPath = Path.of(path);
@@ -35,8 +44,17 @@ public class Application {
             throw new RuntimeException("Файл не найден!");
         }
 
+        if (legalKey == 0) {
+            System.out.println("Ключ не может быть равным 0");
+            return;
+        }
+
         Decryptor decryptor = new Decryptor(path, legalKey);
-        decryptor.decipher();
+        if (legalKey > 0) {
+            decryptor.decipher();
+        } else {
+            decryptor.reverseDecipher();
+        }
     }
 
     public void BruteForceStart(String path) {

@@ -10,4 +10,8 @@ public class Decryptor {
     public void decipher() {
 
     }
+
+    public void reverseDecipher() {
+
+    }
 }
