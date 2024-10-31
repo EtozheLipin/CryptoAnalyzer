@@ -13,7 +13,7 @@ public class Application {
 
         Path legalPath = Path.of(path);
         boolean pathExist = Files.exists(legalPath);
-        if(!pathExist) {
+        if (!pathExist) {
             throw new RuntimeException("Файл не найден!");
         }
 
@@ -31,7 +31,7 @@ public class Application {
 
         Path legalPath = Path.of(path);
         boolean pathExist = Files.exists(legalPath);
-        if(!pathExist) {
+        if (!pathExist) {
             throw new RuntimeException("Файл не найден!");
         }
 
@@ -42,7 +42,7 @@ public class Application {
     public void BruteForceStart(String path) {
         Path legalPath = Path.of(path);
         boolean pathExist = Files.exists(legalPath);
-        if(!pathExist) {
+        if (!pathExist) {
             throw new RuntimeException("Файл не найден!");
         }
 
