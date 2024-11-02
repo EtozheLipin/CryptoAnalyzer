@@ -3,7 +3,7 @@ import java.nio.file.Path;
 
 public class Application {
 
-    public void EncoderStart(String path, String key) {
+    public void EncoderStart(String path, String output, String key) {
         int legalKey;
         try {
             legalKey = Integer.parseInt(key);
@@ -22,7 +22,7 @@ public class Application {
             return;
         }
 
-        Encoder encoder = new Encoder(path, legalKey);
+        Encoder encoder = new Encoder(path, output, legalKey);
         if (legalKey > 0) {
             encoder.encrypt();
         } else {
@@ -30,7 +30,7 @@ public class Application {
         }
     }
 
-    public void DecryptorStart(String path, String key) {
+    public void DecryptorStart(String path, String output, String key) {
         int legalKey;
         try {
             legalKey = Integer.parseInt(key);
@@ -49,7 +49,7 @@ public class Application {
             return;
         }
 
-        Decryptor decryptor = new Decryptor(path, legalKey);
+        Decryptor decryptor = new Decryptor(path, output, legalKey);
         if (legalKey > 0) {
             decryptor.decipher();
         } else {
@@ -57,14 +57,14 @@ public class Application {
         }
     }
 
-    public void BruteForceStart(String path) {
+    public void BruteForceStart(String path, String output) {
         Path legalPath = Path.of(path);
         boolean pathExist = Files.exists(legalPath);
         if (!pathExist) {
             throw new RuntimeException("Файл не найден!");
         }
 
-        BruteForce bruteForce = new BruteForce(path);
+        BruteForce bruteForce = new BruteForce(path, output);
         bruteForce.hack();
     }
 }

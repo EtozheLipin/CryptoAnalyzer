@@ -2,16 +2,18 @@ import java.io.*;
 
 public class Encoder {
     String path;
+    String output;
     int key;
 
-    public Encoder(String path, int key) {
+    public Encoder(String path, String output, int key) {
         this.path = path;
+        this.output = output;
         this.key = key;
     }
 
     public void encrypt() {
         try (BufferedReader br = new BufferedReader(new FileReader(path));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(String.valueOf(Constants.output)))) {
+             BufferedWriter bw = new BufferedWriter(new FileWriter(output))) {
             char[] array;
             int length = Constants.ALPHABET.length - 1;
             String line;
@@ -60,7 +62,7 @@ public class Encoder {
     public void reversEncrypt() {
         key = -key;
         try (BufferedReader br = new BufferedReader(new FileReader(path));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(String.valueOf(Constants.output)))) {
+             BufferedWriter bw = new BufferedWriter(new FileWriter(output))) {
             char[] array;
             int length = Constants.ALPHABET.length - 1;
             String line;

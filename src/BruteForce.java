@@ -2,9 +2,11 @@ import java.io.*;
 
 public class BruteForce {
     String path;
+    String output;
 
-    public BruteForce(String path) {
+    public BruteForce(String path, String output) {
         this.path = path;
+        this.output = output;
     }
 
     public void hack() {
@@ -12,8 +14,7 @@ public class BruteForce {
         while (key < 45) {
 
             try (BufferedReader br = new BufferedReader(new FileReader(path));
-                 BufferedWriter bw = new BufferedWriter(new FileWriter(
-                         "C:\\Users\\user\\Desktop\\Мои Проги\\com.javarush.lipin.cryptoanalyzer\\src\\HackOutput\\output" + key + ".txt"))) {
+                 BufferedWriter bw = new BufferedWriter(new FileWriter(output+"result"+key+".txt"))) {
                 char[] array;
                 int length = Constants.ALPHABET.length - 1;
                 String line;
@@ -25,9 +26,6 @@ public class BruteForce {
                     if (key % 45 == 0) {
                         System.out.println("Ключ не может быть кратным 45");
                         return;
-                    }
-                    while (key > Constants.ALPHABET.length) {
-                        key = key - Constants.ALPHABET.length;
                     }
 
                     for (int i = 0; i < line.length(); i++) {

@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class Runner {
     public static boolean isAlive = true;
-    public static String userPath;
+    public static String userInput;
+    public static String userOutput;
     public static String userKey;
 
     public static void main(String[] args) {
@@ -20,24 +21,30 @@ public class Runner {
             switch (scanner.nextLine()) {
                 case "1":
                     System.out.println("Введите путь к файлу");
-                    userPath = scanner.nextLine();
+                    userInput = scanner.nextLine();
+                    System.out.println("Введите путь вывода");
+                    userOutput = scanner.nextLine();
                     System.out.println("Введите ключ");
                     userKey = scanner.nextLine();
-                    application.EncoderStart(userPath, userKey);
+                    application.EncoderStart(userInput, userOutput, userKey);
                     isAlive = false;
                     break;
                 case "2":
                     System.out.println("Введите путь к файлу");
-                    userPath = scanner.nextLine();
+                    userInput = scanner.nextLine();
+                    System.out.println("Введите путь вывода");
+                    userOutput = scanner.nextLine();
                     System.out.println("Введите ключ");
                     userKey = scanner.nextLine();
-                    application.DecryptorStart(userPath, userKey);
+                    application.DecryptorStart(userInput, userOutput, userKey);
                     isAlive = false;
                     break;
                 case "3":
                     System.out.println("Введите путь к файлу");
-                    userPath = scanner.nextLine();
-                    application.BruteForceStart(userPath);
+                    userInput = scanner.nextLine();
+                    System.out.println("Введите путь вывода");
+                    userOutput = scanner.nextLine();
+                    application.BruteForceStart(userInput, userOutput);
                     isAlive = false;
                     break;
                 case "4":

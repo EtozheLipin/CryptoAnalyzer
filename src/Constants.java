@@ -1,4 +1,3 @@
-import java.nio.file.Path;
 
 public class Constants {
     public static final char[] ALPHABET = {'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з',
@@ -9,5 +8,4 @@ public class Constants {
             'э', 'ь', 'ы', 'ъ', 'щ', 'ш', 'ч', 'ц', 'х', 'ф', 'у', 'т', 'с', 'р', 'п', 'о', 'н', 'м', 'л', 'к', 'й', 'и',
             'з', 'ж', 'ё', 'е', 'д', 'г', 'в', 'б', 'а'};
 
-    public static final Path output = Path.of("C:\\Users\\user\\Desktop\\Мои Проги\\com.javarush.lipin.cryptoanalyzer\\src\\Result.txt");
 }
