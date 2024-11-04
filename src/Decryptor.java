@@ -13,7 +13,7 @@ public class Decryptor {
 
     public void decipher() {
         try (BufferedReader br = new BufferedReader(new FileReader(path));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(output))) {
+             BufferedWriter bw = new BufferedWriter(new FileWriter(output + "decipherResult.txt"))) {
             char[] array;
             int length = Constants.ALPHABET.length - 1;
             String line;
@@ -62,7 +62,7 @@ public class Decryptor {
     public void reverseDecipher() {
         key = -key;
         try (BufferedReader br = new BufferedReader(new FileReader(path));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(output))) {
+             BufferedWriter bw = new BufferedWriter(new FileWriter(output + "decipherResult.txt"))) {
             char[] array;
             int length = Constants.ALPHABET.length - 1;
             String line;

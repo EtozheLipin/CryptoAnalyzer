@@ -13,7 +13,7 @@ public class Encoder {
 
     public void encrypt() {
         try (BufferedReader br = new BufferedReader(new FileReader(path));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(output))) {
+             BufferedWriter bw = new BufferedWriter(new FileWriter(output + "encryptResult.txt"))) {
             char[] array;
             int length = Constants.ALPHABET.length - 1;
             String line;
@@ -62,7 +62,7 @@ public class Encoder {
     public void reversEncrypt() {
         key = -key;
         try (BufferedReader br = new BufferedReader(new FileReader(path));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(output))) {
+             BufferedWriter bw = new BufferedWriter(new FileWriter(output + "encryptResult.txt"))) {
             char[] array;
             int length = Constants.ALPHABET.length - 1;
             String line;

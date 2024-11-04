@@ -13,7 +13,7 @@ public class Application {
 
         Path legalPath = Path.of(path);
         boolean pathExist = Files.exists(legalPath);
-        if (!pathExist) {
+        if (!pathExist || Files.isDirectory(legalPath)) {
             throw new RuntimeException("Файл не найден!");
         }
 
@@ -40,7 +40,7 @@ public class Application {
 
         Path legalPath = Path.of(path);
         boolean pathExist = Files.exists(legalPath);
-        if (!pathExist) {
+        if (!pathExist || Files.isDirectory(legalPath)) {
             throw new RuntimeException("Файл не найден!");
         }
 
@@ -60,8 +60,11 @@ public class Application {
     public void BruteForceStart(String path, String output) {
         Path legalPath = Path.of(path);
         boolean pathExist = Files.exists(legalPath);
-        if (!pathExist) {
+        if (!pathExist || Files.isDirectory(legalPath)) {
             throw new RuntimeException("Файл не найден!");
+        }
+        if (!Files.isDirectory(Path.of(output))) {
+            throw new RuntimeException("Файл вывода не директория");
         }
 
         BruteForce bruteForce = new BruteForce(path, output);
